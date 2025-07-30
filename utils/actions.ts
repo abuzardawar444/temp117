@@ -15,7 +15,7 @@ export const fetchFeaturedProducts = async () => {
 };
 
 export const fetchAllProducts = async ({ search = "" }: { search: string }) => {
-  return db.product.findMany({
+  return await db.product.findMany({
     where: {
       OR: [
         { name: { contains: search, mode: "insensitive" } },
