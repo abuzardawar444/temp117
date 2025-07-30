@@ -14,7 +14,7 @@ export const fetchFeaturedProducts = async () => {
   return products;
 };
 
-export const fetchAllProducts = ({ search = "" }: { search: string }) => {
+export const fetchAllProducts = async ({ search = "" }: { search: string }) => {
   return db.product.findMany({
     where: {
       OR: [
