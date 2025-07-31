@@ -1,7 +1,12 @@
 "use server";
+import db from "@/utils/db";
 
 export const fetchFeaturedProducts = async () => {
-  return [];
+  return await db.product.findMany({
+    where: {
+      featured: true,
+    },
+  });
 };
 
 export const fetchAllProducts = async ({ search = "" }: { search: string }) => {
