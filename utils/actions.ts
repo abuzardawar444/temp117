@@ -10,8 +10,14 @@ export const fetchFeaturedProducts = async () => {
 };
 
 export const fetchAllProducts = async ({ search = "" }: { search: string }) => {
-  console.log("Search query:", search);
-  return [];
+  return await db.product.findMany({
+    where: {
+      name: {
+        contains: search,
+        mode: "insensitive",
+      },
+    },
+  });
 };
 
 export const fetchSingleProduct = async (productId: string) => {
