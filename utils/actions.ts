@@ -5,13 +5,23 @@ import db from "@/utils/db";
 import { redirect } from "next/navigation";
 
 export const fetchFeaturedProducts = async () => {
-  console.log("hello from fetchFeaturedProducts");
+  console.log("Fetching featured products");
 };
 
 export const fetchAllProducts = async ({ search = "" }: { search: string }) => {
-  console.log("hello from fetchAllProducts", search);
+  console.log("Search query:", search);
+  return {};
 };
 
 export const fetchSingleProduct = async (productId: string) => {
-  console.log("hello from fetchSingleProduct", productId);
+  console.log(productId);
+  return {
+    name: "",
+    image: "",
+    price: 0,
+    description: "",
+    company: "",
+    featured: false,
+    id: "",
+  } as const;
 };
