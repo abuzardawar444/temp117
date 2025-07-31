@@ -21,9 +21,11 @@ export const fetchAllProducts = async ({ search = "" }: { search: string }) => {
 };
 
 export const fetchSingleProduct = async (productId: string) => {
-  return await db.product.findUnique({
-    where: {
-      id: productId,
-    },
+  const product = await db.product.findUnique({
+    where: { id: productId },
   });
+  if (!product) {
+    throw new Error("Product not found");
+  }
+  return product;
 };
