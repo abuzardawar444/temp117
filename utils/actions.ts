@@ -21,14 +21,9 @@ export const fetchAllProducts = async ({ search = "" }: { search: string }) => {
 };
 
 export const fetchSingleProduct = async (productId: string) => {
-  console.log(productId);
-  return {
-    name: "",
-    image: "",
-    price: 0,
-    description: "",
-    company: "",
-    featured: false,
-    id: "",
-  } as const;
+  return await db.product.findUnique({
+    where: {
+      id: productId,
+    },
+  });
 };
