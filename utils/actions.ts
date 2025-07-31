@@ -6,7 +6,7 @@ export const fetchFeaturedProducts = async () => {
 
 export const fetchAllProducts = async ({ search = "" }: { search: string }) => {
   console.log("Search query:", search);
-  return {};
+  return [];
 };
 
 export const fetchSingleProduct = async (productId: string) => {
